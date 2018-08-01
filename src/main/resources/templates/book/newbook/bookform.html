@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="dochead" >
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav th:fragment="navigation">
+    <ul id="user-account">
+        <li><a href="/book/user/login">login</a></li>
+        <li><a href="/book/user/login">logout</a></li>
+    </ul>
+    <ul>
+        <li><a href="/book/catalog">home</a></li>
+        <li><a href="/book">all books</a></li>
+        <li><a href="/book/newbook">new book</a></li>
+    </ul>
+</nav>
+
+<h1> Welcome to the SoulBrave Publishing Library Portal</h1>
+<br></br>
+
+<form method="post">
+    <label>
+        <div>ISBN</div>
+        <input type ="text" name = "isbn" th:value="${isbn}"/>
+    </label>
+    <label>
+        <div>title</div>
+        <input type="text" name="title" th:value="${title}"/>
+    </label>
+    <label>
+        <div>description</div>
+        <textarea name="description" th:text="${description}"></textarea>
+    </label>
+    <label>
+        <div>author</div>
+        <input type ="text" name = "author" th:text = "${author}"/>
+    </label>
+    <label>
+        <div> Publication year </div>
+        <input type="text" name = "pubdate" th:text="${pubdate}"/>
+    </label>
+    <div class="error" th:text="${error}"></div>
+    <button type="submit">Create</button>
+</form>
+
+</body>
+</html>

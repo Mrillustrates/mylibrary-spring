@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="dochead">
+        <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+</head>
+<body>
+<!--
+<nav th:fragment="navigation">
+    <ul id="user-account">
+        <li><a href="/book/user/login">login</a></li>
+        <li><a href="/logout">logout</a></li>
+    </ul>
+    <ul>
+        <li><a href="/book/catalog">home</a></li>
+        <li><a href="/book">all books</a></li>
+        <li><a href="book/newbook/bookform">new book</a></li>
+    </ul>
+</nav>
+-->
+<h1> Welcome to the SoulBrave Publishing Library Portal</h1>
+<br></br>
+<h2>Login</h2>
+<p class="error" th:text="${error}"></p>
+<form method="post">
+    <table>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td>
+                <input name="username" type="text" th:value="${username}"></input>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password"></input>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">Log In</button>
+</form>
+
+<p>Don't have an account? <a href="/book/user">Create one!</a></p>
+
+</body>
+</html>
