@@ -5,6 +5,15 @@ body {
     padding: 10px;
 }
 
+table, th, td {
+        border: 2px solid white;
+        text-align: left;
+        border-collapse: collapse;
+        }
+th, td {
+    padding: 7px;
+}
+    }
 .error {
     color: red;
 }

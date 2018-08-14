@@ -36,21 +36,26 @@ public class BookController extends AbstractController {
 
 
         Book newEntry = new Book(title, description, author, isbn, pubdate, editor);
+
+        if(title.contains(" ")){
+           title=  title.replace(" ", "-");
+        }
         bookDao.save(newEntry);
         int id = newEntry.getUid();
 
 
-        return "book/newbook/bookinfo";
+        return ("redirect:/book/"+ title + "/"+ id);
 
 
     }
 
-   @RequestMapping(value = "/{username}/{uid}", method = RequestMethod.GET)
-    public String viewBook(@PathVariable String username, @PathVariable int uid, Model model) {
+   @RequestMapping(value = "/{title}/{uid}", method = RequestMethod.GET)
+    public String viewBook(@PathVariable String title, @PathVariable int uid, Model model) {
 
         //Librarian search = librarianDao.findByUsername(username);
 
-        Book entry = bookDao.findByUid(uid);
+        //Book entry = bookDao.findByUid(uid);
+        Book entry = bookDao.findByTitle(title);
         int bookId = entry.getUid();
 
         if(bookId >= 1){

@@ -16,6 +16,8 @@ public interface BookDao extends CrudRepository<Book, Integer> {
     List<Book> findAll();
     Book findByUid(int uid);
     Book findByAuthor(String author);
+
+    Book findByTitle(String title);
     //Book findByAuthorId(int id);
 
 

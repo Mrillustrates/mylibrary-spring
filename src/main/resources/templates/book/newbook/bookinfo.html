@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head>
+<head th:fragment="dochead" >
+    <link th:href="@{/css/normalize.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
+<nav th:fragment="navigation">
+    <ul id="user-account">
+        <li><a href="/book/user/login">login</a></li>
+        <li><a href="/book/user/login">logout</a></li>
+    </ul>
+    <ul>
+        <li><a href="/book/catalog">home</a></li>
+        <li><a href="/book">all books</a></li>
+        <li><a href="/book/newbook">new book</a></li>
+    </ul>
+</nav>
 
 
 <!-- my code starts -->
-
-<h3 th:text="${book.title}"></h3>
+<table style="width:100%">
+    <tr>
+        <th> Title: </th>
+        <th> Description: </th>
+        <th> ISBN :</th>
+        <th> Author: </th>
+        <th> Publication Year:</th>
+    </tr>
+    <tr>
+        <td th:text="${book.title}"> </td>
+        <td th:text ="${book.description}"></td>
+        <td th:text ="${book.isbn}"></td>
+        <td th:text ="${book.author}"></td>
+        <td th:text = "${book.pubdate}"></td>
+    </tr>
+<!--<h3 th:text="${book.title}"></h3>
 <p th:text ="${book.description}"></p>
 <p th:text ="${book.isbn}"></p>
 <p th:text = "${book.author}"></p>
-<p th:text = "${book.pubdate}"></p>
-
+<p th:text = "${book.pubdate}"></p> -->
+</table>
 <!--<p> Written by <em th:text ="${post.author.username}"></em>  on <em th:text = "${#dates.format(post.created, 'yyyy-MM-dd')}"></em> </p>
 -->
 <form method = "post">
