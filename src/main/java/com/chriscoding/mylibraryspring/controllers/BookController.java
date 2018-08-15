@@ -54,8 +54,8 @@ public class BookController extends AbstractController {
 
         //Librarian search = librarianDao.findByUsername(username);
 
-        //Book entry = bookDao.findByUid(uid);
-        Book entry = bookDao.findByTitle(title);
+        Book entry = bookDao.findByUid(uid);
+        //Book entry = bookDao.findByTitle(title);
         int bookId = entry.getUid();
 
         if(bookId >= 1){

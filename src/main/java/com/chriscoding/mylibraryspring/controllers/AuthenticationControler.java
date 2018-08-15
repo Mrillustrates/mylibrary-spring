@@ -27,6 +27,7 @@ public class AuthenticationControler extends AbstractController {
         String verify = request.getParameter("verify");
         HttpSession session = request.getSession();
 
+
         if(!Librarian.isValidUsername(username)){
             //System.out.println("Invalid usernames");
             return "book/user/signup";
@@ -39,6 +40,7 @@ public class AuthenticationControler extends AbstractController {
             //System.out.println("Invalid password");
             return "book/user/signup";
         }
+
 
         Librarian newUser = new Librarian(username,password);
         librarianDao.save(newUser);
