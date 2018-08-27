@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
         @RequestMapping(value = "catalog")
         public String blogIndex(Model model) {
-            model.addAttribute("catalogs", bookDao.findAll());
+            model.addAttribute("books", bookDao.findAll());
 
-            // TODO - fetch books and pass to template
+            // fetch books and pass to template
 
             return "book/catalog/catalog";
         }

@@ -35,33 +35,46 @@ public class BookController extends AbstractController {
         Librarian editor = getUserFromSession(request.getSession());
 
 
+
+        /*if(title.contains(" ")){
+           title=  title.replace(" ", "-");
+           Book newEntry = new Book(title, description, author, isbn, pubdate, editor);
+           bookDao.save(newEntry);
+
+
+        }
+        else{
+            Book newEntry = new Book(title, description, author, isbn, pubdate, editor);
+            bookDao.save(newEntry);
+
+        }
+        */
         Book newEntry = new Book(title, description, author, isbn, pubdate, editor);
 
-        if(title.contains(" ")){
-           title=  title.replace(" ", "-");
-        }
         bookDao.save(newEntry);
-        int id = newEntry.getUid();
+        //int id = newEntry.getUid();
 
 
-        return ("redirect:/book/"+ title + "/"+ id);
+        return ("redirect:/book/"+ title );
 
 
-    }
+       }
 
-   @RequestMapping(value = "/{title}/{uid}", method = RequestMethod.GET)
-    public String viewBook(@PathVariable String title, @PathVariable int uid, Model model) {
+   @RequestMapping(value = "/{title}", method = RequestMethod.GET)
+    public String viewBook(@PathVariable String title, Model model) {
 
-        //Librarian search = librarianDao.findByUsername(username);
 
-        Book entry = bookDao.findByUid(uid);
-        //Book entry = bookDao.findByTitle(title);
-        int bookId = entry.getUid();
+        //Book entry = bookDao.findByUid(uid);
+        Book name = bookDao.findByTitle(title);
 
-        if(bookId >= 1){
-            model.addAttribute("book", entry);
-        }
+        //int bookId = entry.getUid();
 
+       //  if(bookId >= 1){
+           // model.addAttribute("book", entry);
+            model.addAttribute("book", name);
+
+      //  }
+       
 
 
         return "/book/newbook/bookinfo";

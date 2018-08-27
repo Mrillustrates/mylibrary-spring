@@ -26,7 +26,7 @@ public class AuthenticationControler extends AbstractController {
         String password = request.getParameter("password");
         String verify = request.getParameter("verify");
         HttpSession session = request.getSession();
-
+        String usercheck = request.getParameter("username");
 
         if(!Librarian.isValidUsername(username)){
             //System.out.println("Invalid usernames");
@@ -38,6 +38,10 @@ public class AuthenticationControler extends AbstractController {
         }
         if(!password.equals(verify)){
             //System.out.println("Invalid password");
+            return "book/user/signup";
+        }
+        if(username.equals(usercheck)){
+            System.out.println("Username already taken");
             return "book/user/signup";
         }
 
