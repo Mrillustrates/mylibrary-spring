@@ -11,7 +11,6 @@ import java.util.List;
 @Repository
 public interface BookDao extends CrudRepository<Book, Integer> {
 
-   // List<Book> findbyAuthor(int authorid);
 
     List<Book> findAll();
     Book findByUid(int uid);
@@ -19,8 +18,7 @@ public interface BookDao extends CrudRepository<Book, Integer> {
 
     Book findByTitle(String title);
 
-    //Book findByTitle(String title);
-    //Book findByAuthorId(int id);
+
 
 
 }

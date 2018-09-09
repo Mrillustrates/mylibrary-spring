@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 public class AuthenticationControler extends AbstractController {
 
 
+
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public String signupForm() {
         return "book/user/signup";
@@ -40,10 +41,11 @@ public class AuthenticationControler extends AbstractController {
             //System.out.println("Invalid password");
             return "book/user/signup";
         }
-        if(username.equals(usercheck)){
+        /*if(username.equals(usercheck)){
             System.out.println("Username already taken");
             return "book/user/signup";
-        }
+
+        }*/
 
 
         Librarian newUser = new Librarian(username,password);

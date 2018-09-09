@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
     @RequestMapping(value="book")
     public class CatalogController extends AbstractController {
 
+        //show all books
         @RequestMapping(value = "catalog")
         public String blogIndex(Model model) {
             model.addAttribute("books", bookDao.findAll());

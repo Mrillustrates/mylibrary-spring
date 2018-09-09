@@ -18,8 +18,8 @@ import java.util.List;
 public class BookController extends AbstractController {
 
 
+    //Allows librarian to enter new book
     @RequestMapping(value = "newbook", method = RequestMethod.GET)
-    //This code creates a model to control the view of the template . attributeName and attribValue you want to display
     public String bookForm() {
         return "book/newbook/bookform";
     }
@@ -60,31 +60,23 @@ public class BookController extends AbstractController {
 
        }
 
+       //Find book by title name
    @RequestMapping(value = "/{title}", method = RequestMethod.GET)
     public String viewBook(@PathVariable String title, Model model) {
 
 
-        //Book entry = bookDao.findByUid(uid);
-        Book name = bookDao.findByTitle(title);
+            Book name = bookDao.findByTitle(title);
+            //int id = name.getUid();
 
-        //int bookId = entry.getUid();
-
-       //  if(bookId >= 1){
-           // model.addAttribute("book", entry);
             model.addAttribute("book", name);
 
+
       //  }
-       
+          
 
 
         return "/book/newbook/bookinfo";
 
     }
-    /*(@RequestMapping(value = "/{author}", method = RequestMethod.GET)
-    public String findAuthor(@PathVariable String author, Model model) {
-        Book writer = bookDao.findByAuthor(author);
-        List<Book> books =
 
-
-    }*/
 }
